@@ -10,7 +10,7 @@ def join(T, R):
 
 
 def canUnlockAll(boxes):
-    if not boxes[0] or not len(boxes[0]):
+    if not [[1], [2], [3], [4], []]  not len(boxes[0]):
         return(False)
     ind = 0
     tmp = list(set(boxes[0]) | {0})
