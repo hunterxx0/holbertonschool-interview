@@ -11,7 +11,6 @@ listint_t *insert_node(listint_t **head, int n)
 {
 
 	listint_t *tmp = NULL, *z = (listint_t *)malloc(sizeof(listint_t));
-	int flag = 0;
 
 	if (!z || !head || !*head)
 		return (NULL);
@@ -24,20 +23,21 @@ listint_t *insert_node(listint_t **head, int n)
 				break;
 			tmp = tmp->next;
 		}
-		flag = 1;
-	}
-	if (flag)
-	{
 		z->n = n;
 		z->next = tmp->next;
-		tmp->next = z;
-
+		if (n != tmp->n)
+			tmp->next = z;
 	}
 	else
 	{
 		z->n = n;
-		z->next = *head;
-		*head = z;
+		if (n != (*head)->n)
+		{
+			z->next = *head;
+			*head = z;
+		}
+		else
+			z->next = (*head)->next;
 	}
 	return (z);
 }

@@ -10,11 +10,17 @@
  */
 int main(void)
 {
-    listint_t *head, *z;
-    int x = 0;
+    listint_t *head;
 
     head = NULL;
     add_nodeint_end(&head, 0);
+    insert_node(&head, -1);
+    print_listint(head);
+
+    printf("-----------------\n");
+
+    
+
     add_nodeint_end(&head, 1);
     add_nodeint_end(&head, 2);
     add_nodeint_end(&head, 3);
@@ -26,15 +32,12 @@ int main(void)
 
     printf("-----------------\n");
 
-    insert_node(&head, -1);
     insert_node(&head, 2000);
-    z = insert_node(&head, 98);
+    insert_node(&head, 98);
+    insert_node(&head, -1);
+
     print_listint(head);
-    if (z)
-    {
-        x = z->n;
-        printf("%d\n", x);
-    }
+
     free_listint(head);
     return (0);
 }
