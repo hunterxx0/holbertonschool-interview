@@ -28,10 +28,12 @@ listint_t *insert_node(listint_t **head, int n)
 	}
 	if (flag)
 	{
-	z->n = n;
-	z->next = tmp->next;
-	if (tmp->n == n)
-		return (NULL);
+		if (tmp->n == n)
+			return (NULL);
+		z->n = n;
+		z->next = tmp->next;
+		tmp->next = z;
+
 	}
 	else
 	{
