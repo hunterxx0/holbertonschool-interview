@@ -30,8 +30,8 @@ listint_t *insert_node(listint_t **head, int n)
 	{
 	z->n = n;
 	z->next = tmp->next;
-	if (tmp->n != n)
-		tmp->next = z;
+	if (tmp->n == n)
+		return (NULL);
 	}
 	else
 	{
