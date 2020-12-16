@@ -25,19 +25,14 @@ listint_t *insert_node(listint_t **head, int n)
 		}
 		z->n = n;
 		z->next = tmp->next;
-		if (n != tmp->n)
-			tmp->next = z;
+		tmp->next = z;
 	}
 	else
 	{
 		z->n = n;
-		if (n != (*head)->n)
-		{
-			z->next = *head;
-			*head = z;
-		}
-		else
-			z->next = (*head)->next;
+		z->next = *head;
+		*head = z;
+
 	}
 	return (z);
 }
