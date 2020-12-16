@@ -1,0 +1,1 @@
+Insert in orted linked list
