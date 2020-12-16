@@ -10,7 +10,8 @@
  */
 int main(void)
 {
-    listint_t *head;
+    listint_t *head, *z;
+    int x = 0;
 
     head = NULL;
     add_nodeint_end(&head, 0);
@@ -27,10 +28,13 @@ int main(void)
 
     insert_node(&head, -1);
     insert_node(&head, 2000);
-    insert_node(&head, 27);
+    z = insert_node(&head, 98);
     print_listint(head);
-
+    if (z)
+    {
+        x = z->n;
+        printf("%d\n", x);
+    }
     free_listint(head);
-
     return (0);
 }
