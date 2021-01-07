@@ -10,4 +10,6 @@ def minOperations(n):
             while(n % i == 0):
                 op += i
                 n /= i
+    if n == 2:
+        op = 2
     return(op)
