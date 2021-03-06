@@ -16,6 +16,7 @@ codes = {'200': 0,
          }
 
 def signal_handler(sig, frame):
+	""" error handling """
 	try:
 		print("File size: {}".format(size))
 		for x, y in codes.items():
