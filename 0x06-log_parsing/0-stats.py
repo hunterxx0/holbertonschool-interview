@@ -19,7 +19,7 @@ codes = {'200': 0,
 try:
     for line in sys.stdin:
         num = line.split('"')[-1].split(" ")[1:]
-        if num or len(num) != 2:
+        if !num or len(num) != 2:
             continue
             c += 1
         if num[0] in codes.keys():
