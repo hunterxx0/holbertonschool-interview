@@ -20,7 +20,7 @@ try:
     for line in sys.stdin:
         num = line.split('"')[-1].split(" ")[1:]
         if not num or len(num) != 2:
-            continue
+            exit()
         c += 1
         if num[0] in codes.keys():
             codes[num[0]] += 1
