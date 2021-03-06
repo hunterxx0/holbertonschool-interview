@@ -16,24 +16,24 @@ codes = {'200': 0,
          }
 
 
-try :
-	for line in sys.stdin:
-		num = line.split('"')[-1].split(" ")[1:]
-		if len(num) != 2:
-			continue
-		c +=1
-		if num[0] in codes.keys():
-			codes[num[0]] += 1
-		size += int(num[1])
-		if c % 10 == 0:
-			print("File size: {}".format(size))
-			for x, y in codes.items():
-				if y:
-					print('{}: {}'.format(x, y))
+try:
+    for line in sys.stdin:
+        num = line.split('"')[-1].split(" ")[1:]
+        if num or len(num) != 2:
+            continue
+            c += 1
+        if num[0] in codes.keys():
+            codes[num[0]] += 1
+        size += int(num[1])
+        if c % 10 == 0:
+            print("File size: {}".format(size))
+            for x, y in codes.items():
+                if y:
+                    print('{}: {}'.format(x, y))
 except KeyboardInterrupt:
-	pass
+    pass
 finally:
-	print("File size: {}".format(size))
-	for x, y in codes.items():
-		if y:
-			print('{}: {}'.format(x, y))
+    print("File size: {}".format(size))
+    for x, y in codes.items():
+        if y:
+            print('{}: {}'.format(x, y))
