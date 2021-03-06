@@ -19,9 +19,9 @@ codes = {'200': 0,
 try:
     for line in sys.stdin:
         num = line.split('"')[-1].split(" ")[1:]
-        if !num or len(num) != 2:
+        if not num or len(num) != 2:
             continue
-            c += 1
+        c += 1
         if num[0] in codes.keys():
             codes[num[0]] += 1
         size += int(num[1])
