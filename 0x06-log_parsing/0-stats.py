@@ -15,28 +15,25 @@ codes = {'200': 0,
          '500': 0
          }
 
-def signal_handler(sig, frame):
-	""" error handling """
-	try:
-		print("File size: {}".format(size))
-		for x, y in codes.items():
-			if y:
-				print('{}: {}'.format(x, y))
-	except KeyboardInterrupt:
-		raise KeyboardInterrupt
 
-signal.signal(signal.SIGINT, signal_handler)
-
-for line in sys.stdin:
-	num = line.split('"')[-1].split(" ")[1:]
-	if len(num) != 2:
-		continue
-	c +=1
-	if num[0] in codes.keys():
-		codes[num[0]] += 1
-	size += int(num[1])
-	if c % 10 == 0:
-		print("File size: {}".format(size))
-		for x, y in codes.items():
-			if y:
-				print('{}: {}'.format(x, y))
+try :
+	for line in sys.stdin:
+		num = line.split('"')[-1].split(" ")[1:]
+		if len(num) != 2:
+			continue
+		c +=1
+		if num[0] in codes.keys():
+			codes[num[0]] += 1
+		size += int(num[1])
+		if c % 10 == 0:
+			print("File size: {}".format(size))
+			for x, y in codes.items():
+				if y:
+					print('{}: {}'.format(x, y))
+except KeyboardInterrupt:
+	pass
+finally:
+	print("File size: {}".format(size))
+	for x, y in codes.items():
+		if y:
+			print('{}: {}'.format(x, y))
