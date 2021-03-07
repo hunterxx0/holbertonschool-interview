@@ -24,8 +24,8 @@ try:
         if num and len(num) == 2:
             if num[0] in codes.keys():
                 codes[num[0]] += 1
-            if num[1].isdigit():
-                size += int(num[1])
+            if num[1][:-1].isdigit():
+                size += int(num[1][:-1])
             c += 1
         if c % 10 == 0:
             lp = list(codes.values())
@@ -33,8 +33,6 @@ try:
             for x, y in codes.items():
                 if y:
                     print('{}: {}'.format(x, y))
-except KeyboardInterrupt:
-    pass
 finally:
     if list(codes.values()) != lp:
         print("File size: {}".format(size))
