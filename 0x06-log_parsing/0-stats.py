@@ -18,10 +18,11 @@ codes = {'200': 0,
 
 try:
     for line in sys.stdin:
+        c += 1
         num = line.split(" ")[-2:]
         if not num or len(num) != 2:
             exit()
-        c += 1
+
         if num[0] in codes.keys():
             codes[num[0]] += 1
         size += int(num[1])
