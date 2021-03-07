@@ -31,10 +31,7 @@ try:
                 if y:
                     print('{}: {}'.format(x, y))
 except KeyboardInterrupt:
-    print("File size: {}".format(size))
-    for x, y in codes.items():
-        if y:
-            print('{}: {}'.format(x, y))
+    pass
 finally:
     print("File size: {}".format(size))
     for x, y in codes.items():
