@@ -20,17 +20,15 @@ try:
     for line in sys.stdin:
         c += 1
         num = line.split(" ")[-2:]
-        if not num or len(num) != 2:
-            exit()
-
-        if num[0] in codes.keys():
-            codes[num[0]] += 1
-        size += int(num[1])
-        if c % 10 == 0:
-            print("File size: {}".format(size))
-            for x, y in codes.items():
-                if y:
-                    print('{}: {}'.format(x, y))
+        if num and len(num) == 2:
+            if num[0] in codes.keys():
+                codes[num[0]] += 1
+            size += int(num[1])
+            if c % 10 == 0:
+                print("File size: {}".format(size))
+                for x, y in codes.items():
+                    if y:
+                        print('{}: {}'.format(x, y))
 except KeyboardInterrupt:
     pass
 finally:
