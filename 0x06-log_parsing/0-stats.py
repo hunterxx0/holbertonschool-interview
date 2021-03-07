@@ -2,7 +2,7 @@
 """ Log parsing """
 import signal
 import sys
-pc = 0
+
 c = 0
 size = 0
 codes = {'200': 0,
@@ -14,7 +14,6 @@ codes = {'200': 0,
          '405': 0,
          '500': 0
          }
-lp = []
 
 try:
     for line in sys.stdin:
@@ -25,16 +24,15 @@ try:
                 codes[num[0]] += 1
             size += int(num[1])
         if c % 10 == 0:
-        	lp = 
-
+            lp = list(codes.values())
             print("File size: {}".format(size))
             for x, y in codes.items():
                 if y:
                     print('{}: {}'.format(x, y))
 except KeyboardInterrupt:
 	pass
-finally
-	if (list(codes.values()) != a)
+finally:
+    if list(codes.values()) != lp:
         print("File size: {}".format(size))
         for x, y in codes.items():
             if y:
