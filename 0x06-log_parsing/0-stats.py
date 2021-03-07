@@ -36,7 +36,8 @@ try:
 except KeyboardInterrupt:
     pass
 finally:
-    print("File size: {}".format(size))
-    for x, y in codes.items():
-        if y:
-            print('{}: {}'.format(x, y))
+    if list(codes.values()) != lp:
+        print("File size: {}".format(size))
+        for x, y in codes.items():
+            if y:
+                print('{}: {}'.format(x, y))
