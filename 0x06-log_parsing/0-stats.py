@@ -18,7 +18,7 @@ codes = {'200': 0,
 
 try:
     for line in sys.stdin:
-        num = line.split('"')[-1].split(" ")[1:]
+        num = line.split(" ")[-2:]
         if not num or len(num) != 2:
             exit()
         c += 1
@@ -31,7 +31,10 @@ try:
                 if y:
                     print('{}: {}'.format(x, y))
 except KeyboardInterrupt:
-    pass
+    print("File size: {}".format(size))
+    for x, y in codes.items():
+        if y:
+            print('{}: {}'.format(x, y))
 finally:
     print("File size: {}".format(size))
     for x, y in codes.items():
