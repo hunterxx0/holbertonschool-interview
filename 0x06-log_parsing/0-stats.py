@@ -5,7 +5,7 @@
 import signal
 import sys
 
-
+lp = []
 c = 0
 size = 0
 codes = {'200': 0,
@@ -25,7 +25,8 @@ try:
         if num and len(num) == 2:
             if num[0] in codes.keys():
                 codes[num[0]] += 1
-            size += int(num[1])
+            if num[1].isdigit():
+                size += int(num[1])
         if c % 10 == 0:
             lp = list(codes.values())
             print("File size: {}".format(size))
