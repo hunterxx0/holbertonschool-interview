@@ -20,13 +20,13 @@ codes = {'200': 0,
 
 try:
     for line in sys.stdin:
-        c += 1
         num = line.split(" ")[-2:]
         if num and len(num) == 2:
             if num[0] in codes.keys():
                 codes[num[0]] += 1
             if num[1].isdigit():
                 size += int(num[1])
+        c += 1
         if c % 10 == 0:
             lp = list(codes.values())
             print("File size: {}".format(size))
