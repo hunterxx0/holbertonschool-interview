@@ -26,7 +26,7 @@ try:
                 codes[num[0]] += 1
             if num[1].isdigit():
                 size += int(num[1])
-        c += 1
+            c += 1
         if c % 10 == 0:
             lp = list(codes.values())
             print("File size: {}".format(size))
