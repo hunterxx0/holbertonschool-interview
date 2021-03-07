@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """ Log parsing """
+
+
 import signal
 import sys
+
 
 c = 0
 size = 0
@@ -30,7 +33,7 @@ try:
                 if y:
                     print('{}: {}'.format(x, y))
 except KeyboardInterrupt:
-	pass
+    pass
 finally:
     if list(codes.values()) != lp:
         print("File size: {}".format(size))
