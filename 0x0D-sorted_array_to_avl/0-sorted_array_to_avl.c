@@ -11,6 +11,8 @@ avl_t *newnod(int n, avl_t *parr)
 	avl_t *node = NULL;
 
 	node = (struct binary_tree_s *)malloc(sizeof(struct binary_tree_s));
+	if (!node)
+		return (NULL);
 	node->n = n;
 	node->parent = parr;
 	node->left = NULL;
@@ -20,45 +22,26 @@ avl_t *newnod(int n, avl_t *parr)
 /**
  * avalint - builds an AVL tree from an array
  * @arr: a pointer to the first element of the array to be converted
- * @size: the number of element in the array
  * @parr: a pointer to the parent element of the node
+ * @first: the number of the first element in the array
+ * @last: the number of the last element in the array
  *
  * Return: a pointer to the root node of the created AVL tree.
  */
-avl_t *avalint(int *arr, size_t size, avl_t *parr)
+avl_t *avalint(int *arr, avl_t *parr, int first, int last)
 {
-	int c = 0, i = 0, *l = NULL, *r = NULL, s1 = 0,
-	s2 = 0, mid = 0;
 	avl_t *node = NULL;
+	int mid = (first + last) / 2;
 
-	if (!arr || size <= 0)
+	if (first > last)
 		return (NULL);
-
-	l = malloc(sizeof(int) * (size / 2));
-	r = malloc(sizeof(int) * (size - ((size / 2) + 1)));
-
-	if (size % 2)
-		mid = (int)size / 2;
-	else
-		mid = (int)size / 2 - 1;
-	for (; c < (int)size; c++)
-	{
-		if (c < mid)
-			l[c] = arr[c];
-		else if (c == mid)
-		{
-			s1 = c;
-			s2 = (int)size - (c + 1);
-		}
-		else
-		{
-			r[i] = arr[c];
-			i++;
-		}
-	}
-	node = newnod(arr[s1], parr);
-	node->left = avalint(l, s1, node);
-	node->right = avalint(r, s2, node);
+	node = newnod(arr[mid], parr);
+	if (!node)
+		return (NULL);
+	if (mid != first)
+		node->left = avalint(arr, node, first, mid - 1);
+	if (mid != last)
+		node->right = avalint(arr, node, mid + 1, last);
 	return (node);
 }
 
@@ -76,6 +59,6 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 	if (!array || !size)
 		return (NULL);
 
-	root = avalint(array, size, NULL);
+	root = avalint(array, NULL, 0, (int)size - 1);
 	return (root);
 }
