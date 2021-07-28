@@ -33,10 +33,8 @@ avl_t *avalint(int *arr, size_t size, avl_t *parr)
 
 	if (!arr || size <= 0)
 		return (NULL);
-
 	l = malloc(sizeof(int) * (size / 2));
 	r = malloc(sizeof(int) * (size - ((size / 2) + 1)));
-
 	if (size % 2)
 		mid = (int)size / 2;
 	else
