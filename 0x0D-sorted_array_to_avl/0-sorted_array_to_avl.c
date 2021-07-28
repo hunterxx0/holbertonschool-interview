@@ -37,6 +37,8 @@ avl_t *avalint(int *arr, size_t size, avl_t *parr)
 		}
 	}
 	node = (struct binary_tree_s *)malloc(sizeof(struct binary_tree_s));
+	if (!node)
+		return (NULL);
 	node->n = arr[s1];
 	node->parent = parr;
 	node->left = avalint(l, s1, node);
