@@ -1,5 +1,23 @@
 #include "binary_trees.h"
 /**
+ * newnod - builds an AVL tree from an array
+ * @n: Node data
+ * @parr: a pointer to the parent element of the node
+ *
+ * Return: a pointer to the created node.
+ */
+avl_t *newnod(int n, avl_t *parr)
+{
+	avl_t *node = NULL;
+
+	node = (struct binary_tree_s *)malloc(sizeof(struct binary_tree_s));
+	node->n = n;
+	node->parent = parr;
+	node->left = NULL;
+	node->right = NULL;
+	return (node);
+}
+/**
  * avalint - builds an AVL tree from an array
  * @arr: a pointer to the first element of the array to be converted
  * @size: the number of element in the array
@@ -15,8 +33,10 @@ avl_t *avalint(int *arr, size_t size, avl_t *parr)
 
 	if (!arr || size <= 0)
 		return (NULL);
+
 	l = malloc(sizeof(int) * (size / 2));
 	r = malloc(sizeof(int) * (size - ((size / 2) + 1)));
+
 	if (size % 2)
 		mid = (int)size / 2;
 	else
@@ -36,11 +56,7 @@ avl_t *avalint(int *arr, size_t size, avl_t *parr)
 			i++;
 		}
 	}
-	node = (struct binary_tree_s *)malloc(sizeof(struct binary_tree_s));
-	if (!node)
-		return (NULL);
-	node->n = arr[s1];
-	node->parent = parr;
+	node = newnod(arr[s1], parr);
 	node->left = avalint(l, s1, node);
 	node->right = avalint(r, s2, node);
 	return (node);
