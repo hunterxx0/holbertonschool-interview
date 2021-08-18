@@ -41,21 +41,23 @@ def rain(walls):
                 and (lf, rt) not in spaces):
             spaces.append((lf, rt))
     c = 0
-    lmt = len(spaces) - 1
+    lmt = len(spaces)
     while (c < lmt):
-        x0 = spaces[c]
-        x1 = spaces[c + 1]
-        if ((x0[0] + 1 == x1[0] and x0[1] == x1[1]) or
-                (x0[0] == x1[0] and x0[1] + 1 == x1[1])):
-            mx = max(x0[1], x1[1])
-            mn = min(x1[0], x0[0])
-            if x0[0] == mn and x0[1] == mx:
-                spaces.remove(x1)
+        c2 = 0
+        while (c2 < lmt):
+            if spaces[c] != spaces[c2]:
+                x0 = spaces[c]
+                x1 = spaces[c2]
+                if (x1[0] >= x0[0] and x1[1] <= x0[1]):
+                    spaces.remove(x1)
+                    if c2 < c:
+                        c = c2
+                        c2 += 1
+                    lmt -= 1
+                else:
+                    c2 += 1
             else:
-                spaces.remove(x0)
-            c -= 1
-            lmt -= 1
-        else:
-            c += 1
+                c2 += 1
+        c += 1
     wt = calct(walls, spaces)
     return wt
