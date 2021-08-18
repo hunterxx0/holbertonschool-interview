@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """
-Rain
+Rain Module
+
+calculate how many square units of water
+will be retained after it rains.
 """
 
 
