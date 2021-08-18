@@ -2,12 +2,13 @@
 """
 Rain
 """
+
+
 def calct(walls, sp):
     """
     calculate how many square units of water
     will be retained after it rains.
     """
-    print(sp)
     wt = 0
     for x in sp:
         lf = x[0]
@@ -17,6 +18,7 @@ def calct(walls, sp):
         for z in sub:
             wt += mn - z
     return wt
+
 
 def rain(walls):
     """
@@ -28,7 +30,6 @@ def rain(walls):
     """
     if not walls:
         return 0
-    print(walls)
     spaces = []
     for c in range(1, len(walls)-1):
         lf = c - 1
