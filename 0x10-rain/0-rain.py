@@ -41,8 +41,8 @@ def rain(walls):
             lf -= 1
         while (walls[c] >= walls[rt] and rt < len(walls)-1):
             rt += 1
-        if (walls[c] < walls[lf] and walls[c] < walls[rt]
-                and (lf, rt) not in spaces):
+        if (walls[c] < walls[lf] and walls[c] < walls[rt] and
+                (lf, rt) not in spaces):
             spaces.append((lf, rt))
     c = 0
     lmt = len(spaces)
