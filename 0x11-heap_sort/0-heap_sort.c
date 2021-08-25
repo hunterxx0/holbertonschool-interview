@@ -66,6 +66,6 @@ heapify(arr, i, 0, size);
 */
 void heap_sort(int *array, size_t size)
 {
-if (array && size > 2)
+if (array && size >= 2)
 heapSort(array, (int)size, (int)size);
 }
