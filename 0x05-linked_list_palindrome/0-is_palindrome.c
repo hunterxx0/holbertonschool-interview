@@ -16,9 +16,8 @@ int checkPalin(listint_t **left, listint_t *right)
 	}
 
 	result = checkPalin(left, right->next);
-	((*left)->n == right->n);
-
-	(*left) = (*left)->next;
+	if ((*left)->n == right->n)
+		(*left) = (*left)->next;
 
 	return (result);
 }
