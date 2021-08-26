@@ -39,26 +39,6 @@ heapify(arr, n, max, size);
 }
 }
 /**
-* heapSort - heap sort an array
-* @arr: pointer to the  the list
-* @n: the left element of the list
-* @size: size of the list
-* Return:
-*/
-void heapSort(int arr[], int n, int size)
-{
-for (int i = n / 2 - 1; i >= 0; i--)
-heapify(arr, n, i, size);
-
-for (int i = n - 1; i >= 0; i--)
-{
-swap(&arr[0], &arr[i]);
-if (arr[0] != arr[i])
-print_array(arr, n);
-heapify(arr, i, 0, size);
-}
-}
-/**
 * heap_sort - heap sort an array
 * @array: pointer to the  the list
 * @size: size of the list
@@ -66,6 +46,19 @@ heapify(arr, i, 0, size);
 */
 void heap_sort(int *array, size_t size)
 {
-if (array && size >= 2)
-heapSort(array, (int)size, (int)size);
+int n = (int)size;
+
+if (n >= 2)
+{
+for (int i = n / 2 - 1; i >= 0; i--)
+heapify(array, n, i, size);
+
+for (int i = n - 1; i >= 0; i--)
+{
+swap(&array[0], &array[i]);
+if (array[0] != array[i])
+print_array(array, n);
+heapify(array, i, 0, size);
+}
+}
 }
