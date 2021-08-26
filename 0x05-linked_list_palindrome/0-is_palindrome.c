@@ -8,12 +8,14 @@
  */
 int checkPalin(listint_t **left, listint_t *right)
 {
+	int result = 0;
+
 	if (right == NULL)
 	{
 		return (1);
 	}
 
-	int result = checkPalin(left, right->next) &&
+	result = checkPalin(left, right->next);
 	((*left)->n == right->n);
 
 	(*left) = (*left)->next;
