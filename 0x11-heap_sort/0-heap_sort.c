@@ -13,14 +13,14 @@ int tmp = *a;
 *b = tmp;
 }
 /**
-* heapify - heap sort an array
+* sorting - heap sort an array
 * @arr: pointer to the  the list
 * @n: the left element of the list
 * @i: the right element of the list
 * @size: size of the list
 * Return:
 */
-void heapify(int arr[], int n, int i, int size)
+void sorting(int arr[], int n, int i, int size)
 {
 int max = i, lf = 2 * i + 1, rt = 2 * i + 2;
 
@@ -35,7 +35,7 @@ if (max != i)
 swap(&arr[i], &arr[max]);
 if (arr[i] != arr[max])
 print_array(arr, size);
-heapify(arr, n, max, size);
+sorting(arr, n, max, size);
 }
 }
 /**
@@ -51,14 +51,14 @@ int n = (int)size;
 if (n >= 2)
 {
 for (int i = n / 2 - 1; i >= 0; i--)
-heapify(array, n, i, size);
+sorting(array, n, i, size);
 
 for (int i = n - 1; i >= 0; i--)
 {
 swap(&array[0], &array[i]);
 if (array[0] != array[i])
 print_array(array, n);
-heapify(array, i, 0, size);
+sorting(array, i, 0, size);
 }
 }
 }
