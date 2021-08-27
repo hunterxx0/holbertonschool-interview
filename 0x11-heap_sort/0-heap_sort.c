@@ -33,6 +33,7 @@ max = rt;
 if (max != i)
 {
 swap(&arr[i], &arr[max]);
+if (arr[i] != arr[max])
 print_array(arr, size);
 sorting(arr, n, max, size);
 }
@@ -55,6 +56,7 @@ sorting(array, n, i, size);
 for (i = n - 1; i >= 0; i--)
 {
 swap(&array[0], &array[i]);
+if (array[0] != array[i])
 print_array(array, n);
 sorting(array, i, 0, size);
 }
