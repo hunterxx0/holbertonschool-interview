@@ -46,14 +46,14 @@ sorting(arr, n, max, size);
 */
 void heap_sort(int *array, size_t size)
 {
-int n = (int)size;
+int n = (int)size, i = 0;
 
 if (n >= 2)
 {
-for (int i = n / 2 - 1; i >= 0; i--)
+for (i = n / 2 - 1; i >= 0; i--)
 sorting(array, n, i, size);
 
-for (int i = n - 1; i >= 0; i--)
+for (i = n - 1; i >= 0; i--)
 {
 swap(&array[0], &array[i]);
 if (array[0] != array[i])
