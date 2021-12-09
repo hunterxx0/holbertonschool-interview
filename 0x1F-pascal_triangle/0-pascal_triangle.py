@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-Pascal's Triangle 
+Pascal's Triangle
 """
 from math import factorial
 
 
 def pascal_triangle(n):
     """
-    Pascal's Triangle 
+    Pascal's Triangle
     """
     res = []
     if n <= 0:
